@@ -10,6 +10,7 @@ h3 {
     color: #4e4e71;
 }
 
+
  /* ****************************
         DRY STYLING
    **************************** */
@@ -17,15 +18,21 @@ header,
 nav,
 .profile__nav, 
 .dashboard,
+.alert,
+.alert-banner,
 .traffic__container,
 .traffic__nav,
-.social_container {
+.social_container,
+.members__container,
+.message-container,
+.settings_container {
     display: flex;
 }
 
 .notif,
 .nav__link,
-.dashboard {
+.dashboard,
+#alert {
     text-align: center;
 }
 
@@ -43,16 +50,37 @@ header,
     margin: 15px;
 }
 
+.message-btn,
+.save-btn,
+.cancel-btn {
+    background-color: #7477BF;
+    color: #fff;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
 
+.traffic,
+.daily,
+.mobile-users,
+.social,
+.new-members,
+.recent-activity {
+    border-bottom: 0.1px solid rgb(228, 228, 228);
+}
+
+.mobile-users,
+.recent-activity,
+.settings {
+    border-left: 0.1px solid rgb(228, 228, 228);
+}
 
  /* ****************************
         BODY
    **************************** */
 
 .page-wrap {
-    height: 100vh;
     grid-template-rows: auto;
-    grid-template-columns: 100%;
     grid-template-areas: 
     "header"
     "nav"
@@ -141,6 +169,20 @@ nav {
 .main {
     grid-area: main;
 }
+
+
+.alert-banner {
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #7477BF;
+    color: #fff;
+    border-radius: 10px;    
+    margin: 10px auto;
+}
+    .alert-banner p {
+        margin-left: 5px;
+        padding: 0 8px; 
+    }
     /* ****************************
         DASHBOARD */
 
@@ -178,12 +220,20 @@ nav {
     padding-top: 20px;
 }
     
-.traffic__container li {
-    margin-left: 10px;
-}
-    .traffic__nav {
+
+.traffic__nav {
         list-style: none;
         margin-right: 15px;
+    }
+.traffic__nav-link {
+        margin-left: 10px;
+        padding: 0.4em 1em 0.4em 1em;
+    }
+    .traffic__nav-link:hover {
+        background-color: rgb(11, 221, 123);
+        padding: 0.4em 1em 0.4em 1em;
+        border-radius: 30px;
+        color: white;
     }
 
 .widget-container-full, 
@@ -195,12 +245,24 @@ select {
     max-width: 150px;
 }
 
+.widget-container-full {
+    margin: 15px auto;
+}
+
+.widget-container-half {
+    margin: 15px auto;
+}
+
+#mobile-chart {
+    margin-bottom: 20px;
+}
+
     /* ****************************
         Social */
 
 
 .social_container {
-    justify-content: space-evenly;
+    align-items: center;
     margin: 15px auto;
     padding: 5px;
     background-color: #fbfbfb;
@@ -210,16 +272,142 @@ select {
 }
 
 .social-image {
+    margin-left: auto;
     padding: 10px;
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     background-color: #7477BF;
     fill: #fff;
 }
 .icon {
+    height: 50px;
+    width: 50px;
+}
+    .twitter {
+        position: relative;
+        top: 13px;
+        left: 9px;
+    }
+    .facebook {
+        position: relative;
+        top: 4px;
+        left: 3px;
+    }
+    .google {
+        position: relative;
+        top: 8px;
+        left: 9px;
+    }
+.social__text {
+    margin: 0 auto;
+}
+.social__text h4 {
+    font-weight: bold;
+    color: #7477BF;
+}
+.social__text p {
+    font-weight: 400;
+    font-size: 1.8em;
+}
+
+    /* ****************************
+        Members */
+.members__container {
+    margin: 20px auto;
+    width: 80%;
+}
+.members__text {
+    padding-top: 5px;
+    font-size: 15px;
+}
+.date {
+    margin-left: auto; 
+    float: right;
+}
+.members__container img {
+    height: 3.5em;
+    border-radius: 50%;
+    margin-right: 15px; 
+}
+
+/* ****************************
+        Recent Activity */
+.activity__container {
+    display: flex;
+    margin: 20px auto;
+    margin-left: 25px;
+}
+    .activity__container img {
+        height: 3.5em;
+        border-radius: 50%;
+    }
+.activity__text {
+    margin-left: 10px; 
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+    .activity__text a {
+        font-size: 11px;
+    }
+/* ****************************
+        Messages */
+.message-container {
+    flex-direction: column;
+    margin: auto 10px;
+}
+
+.message-container input,
+.message-container textarea {
+    margin-bottom: 10px;
+}
+.message-container input {
     height: 30px;
-    width: 30px;
+    border-radius: 6px;
+    border: 1px solid #bfbfc5; 
+}
+.message-container textarea {
+    height: 100px;
+    border-radius: 6px; 
+    border: 1px solid #bfbfc5;
+}
+
+.message-btn {
+    margin-bottom: auto; 
+}
+
+/* ****************************
+        Settings */
+.settings_container {
+    flex-direction: column;
+    padding: 10px 30px;
+    margin-bottom: 20px; 
+}
+
+.switch-light {
+    margin-bottom: 20px;
+}
+
+.timezone {
+    max-width: none;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #bfbfc5; 
+}
+
+.btn-settings {
+    display: flex;
+}
+.cancel-btn {
+    background-color: #d6d6da;
+    color: #6a6a6e;
+}
+
+.save-btn,
+.cancel-btn {
+    flex: 1;
+    margin: 0 5px;
 }
 
 
@@ -252,20 +440,26 @@ select {
 nav {
     flex-direction: column;
     padding-top: 10px;
+    border-top: 0;
+    border-left: 2px solid transparent;
 }
 
-
+.nav__link:focus,
+    .nav__link:active {
+        border-top: 0;
+        border-left: 2px solid #84d386;
+        opacity: 1;
+    }
   /* ****************************
         MAIN - DESKTOP
     **************************** */
 
-.main {
-    grid-template-columns: 1fr;
-}
+
     /* ****************************
         GRID DISTRIBUTION */
 
 .dashboard,
+#alert,
 .traffic,
 .social {
     grid-column: 1 / span 2;
@@ -280,11 +474,8 @@ nav {
 .mobile-users,
 .recent-activity,
 .settings {
-    grid-column: 2 / span 2;
+    grid-column: 2 / span 1;
 }
-
-}
-
 
 .widget-container-full {
     width: 90vw;
@@ -293,3 +484,19 @@ nav {
 .widget-container-half {
     width: 45vw;
 }
+}
+
+   /* ****************************
+        SOCIAL Stats */
+
+.social {
+    display: inline-flex;
+}
+    .social h3 {
+        display: none
+    }
+.social_container {
+    margin:20px;
+}
+
+

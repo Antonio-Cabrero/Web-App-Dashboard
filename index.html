@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/toggle-switch.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="page-wrap">
 
@@ -59,7 +61,23 @@
                 </div>
             </div>
             <div class="alert" id="alert">
-                <!-- js code here -->
+                <script>
+                            // ALERT Element
+                    const alert= document.getElementById("alert");
+                        alert.innerHTML = `
+                            <div class="alert-banner">
+                                <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complere</p>
+                                <p class="alert-banner-close">x</p>
+                            </div>
+                        `
+                            // ALERT EVENT Listener
+                    alert.addEventListener('click', e => {
+                        const element = e.target;
+                        if (element.classList.contains("alert-banner-close")) {
+                            alert.style.display = "none"
+                        }
+                    });
+                </script>
             </div>
 
 
@@ -79,7 +97,7 @@
                     <canvas id="traffic-chart"></canvas>
                 </div>
             </section>
-
+            
 
                     <!-- BAR GRAPH -->
             <section class="daily">     <!-- ROW 3 -->
@@ -87,52 +105,54 @@
                 <div class="widget-container-half">
                     <canvas id="daily-chart"></canvas>
                 </div>
+                
             </section>
+            
                     <!-- DOUGHNUT CHART -->
             <section class="mobile-users">
-                    <h3  class="section_title">Mobile Users</h3>
-                    <div class="traffic__widget--doughnut">
-                        <canvas id="mobile-chart"></canvas>
-                    </div>
-                </section>
-
+                <h3  class="section_title">Mobile Users</h3>
+                <div class="traffic__widget--doughnut">
+                    <canvas id="mobile-chart"></canvas>
+                </div>
+            </section>
 
                 <!-- SOCIAL MEDIA -->
             <section class="social">  <!-- ROW 4 -->
                  <h3 class="section_title">Social Stats</h3>
                 <div class="social_container">
                     <span class="social-image">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                        <svg class="icon twitter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <path d="M32 3.1c-1.2.5-2.4.9-3.8 1 1.4-.8 2.4-2.1 2.9-3.6-1.3.8-2.7 1.3-4.2 1.6C25.8.8 24 0 22.2 0c-3.6 0-6.6 2.9-6.6 6.6 0 .5.1 1 .2 1.5-5.5-.3-10.3-2.9-13.6-6.9-.6 1-.9 2.1-.9 3.3 0 2.3 1.2 4.3 2.9 5.5-1.1 0-2.1-.3-3-.8v.1c0 3.2 2.3 5.8 5.3 6.4-.6.1-1.1.2-1.7.2-.4 0-.8 0-1.2-.1.8 2.6 3.3 4.5 6.1 4.6-2.2 1.8-5.1 2.8-8.2 2.8-.5 0-1.1 0-1.6-.1 2.9 1.9 6.4 3 10.1 3 12.1 0 18.7-10 18.7-18.7v-.8c1.3-1 2.4-2.2 3.3-3.5z"/>
                         </svg>
                     </span>
                     <div class="social__text">
-                        <p>Twitter</p>
+                        <h4>Twitter</h4>
                         <p>10,323</p>
                     </div>
                 </div>
                 <div class="social_container">
                     <span class="social-image">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="icon facebook" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40.43 21.739h-7.645v-5.014c0-1.883 1.248-2.322 2.127-2.322h5.395V6.125l-7.43-.029c-8.248 0-10.125 6.174-10.125 10.125v5.518h-4.77v8.53h4.77v24.137h10.033V30.269h6.77l.875-8.53z"/>
                         </svg>
                     </span>
                     <div class="social__text">
-                        <p>Facebook</p>
+                        <h4>Facebook</h4>
                         <p>8,793</p>
                     </div>
                 </div>
                 
                 <div class="social_container">
                     <span class="social-image">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                        <svg class="icon google" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <path d="M17.7 25.7c0-.3 0-.5-.1-.8-.1-.2-.1-.5-.2-.7-.1-.2-.2-.4-.3-.7-.2-.2-.3-.4-.4-.6-.1-.2-.3-.3-.5-.6l-.5-.5c-.1-.1-.3-.3-.6-.5s-.5-.4-.6-.4-.3-.2-.6-.4-.5-.4-.6-.4h-1c-.7 0-1.4 0-2 .1-.7.1-1.4.2-2.1.5-.7.2-1.3.5-1.9.9s-1 .8-1.3 1.4c-.3.6-.5 1.3-.5 2.1 0 .9.2 1.7.7 2.3.5.7 1.1 1.2 1.8 1.6s1.5.7 2.3.9 1.6.3 2.4.3c.8 0 1.5-.1 2.2-.2.7-.2 1.3-.4 1.9-.8.6-.3 1.1-.8 1.4-1.4.3-.6.5-1.3.5-2.1zM15.4 9.1c0-.8-.1-1.6-.3-2.5-.2-.9-.5-1.7-.9-2.5s-.9-1.5-1.6-2c-.7-.5-1.5-.8-2.3-.8-1.2 0-2.1.4-2.8 1.3-.7.9-1 1.9-1 3.2 0 .6.1 1.2.2 1.9s.4 1.3.7 2c.3.7.7 1.3 1.1 1.8.4.5.9 1 1.5 1.3.6.3 1.2.5 1.9.5 1.2 0 2.1-.4 2.7-1.2.5-.7.8-1.7.8-3zM12.9 0h8.4l-2.6 1.5h-2.6c.9.6 1.6 1.4 2.1 2.4S19 6 19 7.1c0 .9-.1 1.8-.4 2.5-.3.7-.7 1.3-1.1 1.8-.4.4-.8.9-1.3 1.2-.4.4-.8.8-1.1 1.2-.3.4-.4.8-.4 1.3 0 .3.1.7.3 1 .2.3.5.6.8.9.3.3.7.6 1.1.9.4.3.8.7 1.2 1.1.4.4.8.8 1.1 1.3.3.5.6 1 .8 1.6.2.6.3 1.3.3 2 0 2.1-.9 3.9-2.7 5.4-1.9 1.7-4.6 2.5-8.1 2.5-.8 0-1.5-.1-2.3-.2-.8-.1-1.6-.3-2.3-.6-.8-.3-1.5-.7-2.1-1.1-.6-.4-1.1-1-1.5-1.7C1 27.6.8 26.9.8 26c0-.8.2-1.6.7-2.6.4-.8 1-1.5 1.8-2.1.8-.6 1.8-1.1 2.8-1.4 1-.3 2-.5 3-.7.9-.1 1.9-.2 2.9-.3-.8-1.1-1.2-2-1.2-2.9v-.5c0-.1.1-.3.1-.4 0-.1.1-.2.2-.4s.1-.3.1-.4c-.5.1-1 .1-1.3.1-1.9 0-3.5-.6-4.9-1.9-1.4-1.3-2-2.8-2-4.7C3 6 3.6 4.4 4.8 3 6 1.7 7.5.8 9.3.4c1.2-.3 2.4-.4 3.6-.4zm19.9 4.9v2.5h-4.9v4.9h-2.5V7.4h-4.9V4.9h4.9V0h2.5v4.9h4.9z"/>
                         </svg>                    </span>
                     <div class="social__text">
-                        <p>Google+</p>
+                        <h4>Google+</h4>
                         <p>2,530</p>
                     </div>
                 </div>
+                
             </section>
 
 
@@ -140,54 +160,75 @@
             <section class="new-members"><!-- ROW 5 -->
                 <h3  class="section_title">New Members</h3>
                 <div class="members__container">
-                    <img src="" alt="">
+                    <img src="images/member-1.jpg" alt="">
                     <div class="members__text">
-                        <h5 class="members__name">Victoria Chambers</h5>
-                        <a href="#">victoria.chamebrs80@example.com</a>
+                        <h5 class="members__name info">Victoria Chambers</h5>
+                        <a class="info" href="#">victoria.chamebrs80@example.com</a>
                     </div>
-                    <p>10/15/19</p>
-                </div>
-
-                <div class="members__container">
-                    <img src="" alt="">
-                    <div class="members__text">
-                        <h5 class="members__name">Victoria Chambers</h5>
-                        <a href="#">victoria.chamebrs80@example.com</a>
-                    </div>
-                    <p>10/15/19</p>
-                </div>
-
-                <div class="members__container">
-                    <img src="" alt="">
-                    <div class="members__text">
-                        <h5 class="members__name">Victoria Chambers</h5>
-                        <a href="#">victoria.chamebrs80@example.com</a>
-                    </div>
-                    <p>10/15/19</p>
+                    <p class="date">10/15/19</p>
                 </div>
                 
                 <div class="members__container">
-                    <img src="" alt="">
+                    <img src="images/member-2.jpg" alt="">
                     <div class="members__text">
-                        <h5 class="members__name">Victoria Chambers</h5>
-                        <a href="#">victoria.chamebrs80@example.com</a>
+                        <h5 class="members__name">Dale Nyrd</h5>
+                        <a href="#">dale.nyrd@example.com</a>
                     </div>
-                    <p>10/15/19</p>
+                    <p class="date">10/15/19</p>
+                </div>
+               
+                <div class="members__container">
+                    <img src="images/member-3.jpg" alt="">
+                    <div class="members__text">
+                        <h5 class="members__name">Dawn Wood</h5>
+                        <a href="#">dawn.wood@example.com</a>
+                    </div>
+                    <p class="date">10/15/19</p>
+                </div>
+                
+                <div class="members__container">
+                    <img src="images/member-4.jpg" alt="">
+                    <div class="members__text">
+                        <h5 class="members__name">Dan Oliver</h5>
+                        <a href="#">dan.oliver@example.com</a>
+                    </div>
+                    <p class="date">10/15/19</p>
                 </div>
             </section>
             <!-- RECENT ACTIVITY WIDGET -->
             <section class="recent-activity">
                     <h3  class="section_title">Recent Activity</h3>
-                    <div class="activity__container"> 
-                        <img src="" alt="">
-                        <div class="activity__text">
-                            <p>Victoria Chambers commented on YourApp&trade; tips</p>
-                            <a href="#">4 hours ago</a>
+                     
+                        <div class="activity__container">
+                            <img src="images/member-1.jpg" alt="">
+                            <div class="activity__text">
+                                <p>Victoria Chambers commented on YourApp&trade; tips</p>
+                                <a href="#">2 hours ago</a>
+                            </div>
                         </div>
-                        <p>10/15/19</p>
-                    </div>
+                        <div class="activity__container">
+                            <img src="images/member-2.jpg" alt="">
+                            <div class="activity__text">
+                                <p>Dale Nyrd likes the post Facebook Changes</p>
+                                <a href="#">4 hours ago</a>
+                            </div>
+                        </div>
+                        <div class="activity__container">
+                            <img src="images/member-3.jpg" alt="">
+                            <div class="activity__text">
+                                <p>Dawn Wood commented on Facebooks Changes</p>
+                                <a href="#">6 hours ago</a>
+                            </div>
+                        </div>
+                        <div class="activity__container">
+                            <img src="images/member-4.jpg" alt="">
+                            <div class="activity__text">
+                                <p>Dan Oliver posted on YourApp&trade; tips</p>
+                                <a href="#">8 hours ago</a>
+                            </div>
+                        </div>
+                    
                 </section>
-
 
                 <!-- MESSAGES WIDGET -->
             <section class="message">   <!-- ROW 6 -->
@@ -195,7 +236,7 @@
 
                 <form class="message-container">
                     <input id="userField" class="form-field" type="text" placeholder="Search for User" >
-                    <textarea name="comment" id="messageField" class="form-message"></textarea>
+                    <textarea name="comment" id="messageField" class="form-message" placeholder="Message to User"></textarea>
                     <button id="btn-message" class="message-btn">Send</button>
                 </form>
             </section>
@@ -203,51 +244,76 @@
                 <!-- SETTINGS -->
             <section class="settings">
                 <h3  class="section_title">Settings</h3>
-                <!-- custom CSS toggle -->
-                <!-- custom CSS toggle -->
-                <select name="timezone" id="timezone">
-                    <option disabled selected>Select timezone</option>
-                    <option>−12:00	Baker Island, Howland Island </option>
-                    <option>UTC−11:00	American Samoa, Niue	</option>
-                    <option> UTC−10:00	United States (Hawaii)</option>
-                    <option>UTC−09:30	Marquesas Islands	</option>
-                    <option>UTC−09:00	Gambier Islands	</option>
-                    <option>UTC−07:00	British Columbia, Sonora, Arizona</option>
-                    <option>UTC−06:00	Canada, Costa Rica, El Salvador, Galápagos Islands, Guatemala, Honduras, Mexico, Nicaragua</option>
-                    <option>UTC−05:00	Colombia, Cuba, Ecuador, Jamaica, Panama, Peru</option>
-                    <option>UTC−04:30	Venezuela	</option>
-                    <option>UTC−04:00	Bolivia, Amazonas, Chile, Dominican Republic, Nova Scotia, Puerto Rico, Barbados, Trinidad and Tobago</option>
-                    <option>UTC−03:00	Argentina, Paraguay</option>
-                    <option>UTC−02:00	Fernando de Noronha, South Georgia and the South Sandwich Islands	</option>
-                    <option>UTC−01:00	Cape Verde</option>
-                    <option>UTC±00:00	Côte d'Ivoire, Faroe Islands, Ghana, Iceland, Senegal</option>
-                    <option>UTC+01:00	Algeria, Angola, Benin, Cameroon, Gabon, Niger, Nigeria, Democratic Republic of the Congo (west), Tunisia</option>
-                    <option>UTC+02:00	Egypt, Malawi, Mozambique, South Africa, Swaziland, Zambia, Zimbabwe</option>
-                    <option>UTC+03:00	Belarus, Djibouti, Eritrea, Ethiopia, Iraq, Kenya, Madagascar, Kaliningrad Oblast, Saudi Arabia, South Sudan, Sudan, Somalia, Somaliland, Tanzania, Uganda, Yemen	</option>
-                    <option>UTC+04:00	Armenia, Azerbaijan, Georgia, Mauritius, Oman, Russia (European), Seychelles, United Arab Emirates	</option>
-                    <option>UTC+04:30	Afghanistan	</option>
-                    <option>UTC+05:00	Kazakhstan (west), Maldives, Pakistan, Uzbekistan	</option>
-                    <option>UTC+05:30	India, Sri Lanka	</option>
-                    <option>UTC+05:45	Nepal	</option>
-                    <option>UTC+06:00	Kazakhstan (most), Bangladesh, Bhutan, Russia (Ural: Sverdlovsk Oblast, Chelyabinsk Oblast)</option>	
-                    <option>UTC+06:30	Cocos Islands, Myanmar	</option>
-                    <option>UTC+07:00	Western Indonesia, Russia (Novosibirsk Oblast), Thailand, Vietnam, Cambodia	</option>
-                    <option>UTC+08:00	Hong Kong, Central Indonesia, China, Russia (Krasnoyarsk Krai), Malaysia, Philippines, Singapore, Taiwan, most of Mongolia (Western Australia, Eucla, Macau	</option>
-                    <option>UTC+08:45	Australia Eucla unofficial</option>
-                    <option>UTC+09:00	Eastern Indonesia, East Timor, Irkutsk Oblast, Japan, North Korea, South Korea</option>
-                    <option>UTC+09:30	Australia Northern Territory</option>
-                    <option>UTC+10:00	Zabaykalsky Krai, Papua New Guinea, Queensland</option>
-                    <option>UTC+11:00	New Caledonia, Primorsky Krai, Solomon Islands	</option>
-                    <option>UTC+11:30	Norfolk Island	</option>
-                    <option>UTC+12:00	Kiribati (Gilbert Islands), Fiji, Russia (Kamchatka Krai)</option>
-                    <option>UTC+13:00	Kiribati (Phoenix Islands), Tonga, Tokelau</option>
-                    <option>UTC+14:00	Kiribati (Line Islands)   </option>
-                </select>
-                <div class="btn-settings">
-                    <button id="btn-save" class="save-btn">Save</button>
-                    <button id="btn-cancel" class="cancel-btn">Cancel</button>
+                <div class="settings_container">
+                    <label class="switch-light switch-material" onclick="">
+                        <input type="checkbox">
+                            <strong>
+                            Send email Notifications
+                            </strong>                        
+                            <span class="switch">
+                            <span>Off</span>
+                            <span>On</span>
+                            <a></a>
+                            </span>
+                        </label>
+                    <label class="switch-light switch-material" onclick="">
+                        <input type="checkbox">
+                            <strong>
+                            Set Profile to public
+                            </strong>
+                            <span class="switch">
+                            <span>Off</span>
+                            <span>On</span>
+                            <a></a>
+                            </span>
+                        </label>
+                    <!-- custom CSS toggle -->
+                    <select class="timezone" name="timezone" id="timezone">
+                        <option disabled selected>Select timezone</option>
+                        <option>−12:00	Baker Island, Howland Island </option>
+                        <option>UTC−11:00	American Samoa, Niue	</option>
+                        <option> UTC−10:00	United States (Hawaii)</option>
+                        <option>UTC−09:30	Marquesas Islands	</option>
+                        <option>UTC−09:00	Gambier Islands	</option>
+                        <option>UTC−07:00	British Columbia, Sonora, Arizona</option>
+                        <option>UTC−06:00	Canada, Costa Rica, El Salvador, Galápagos Islands, Guatemala, Honduras, Mexico, Nicaragua</option>
+                        <option>UTC−05:00	Colombia, Cuba, Ecuador, Jamaica, Panama, Peru</option>
+                        <option>UTC−04:30	Venezuela	</option>
+                        <option>UTC−04:00	Bolivia, Amazonas, Chile, Dominican Republic, Nova Scotia, Puerto Rico, Barbados, Trinidad and Tobago</option>
+                        <option>UTC−03:00	Argentina, Paraguay</option>
+                        <option>UTC−02:00	Fernando de Noronha, South Georgia and the South Sandwich Islands	</option>
+                        <option>UTC−01:00	Cape Verde</option>
+                        <option>UTC±00:00	Côte d'Ivoire, Faroe Islands, Ghana, Iceland, Senegal</option>
+                        <option>UTC+01:00	Algeria, Angola, Benin, Cameroon, Gabon, Niger, Nigeria, Democratic Republic of the Congo (west), Tunisia</option>
+                        <option>UTC+02:00	Egypt, Malawi, Mozambique, South Africa, Swaziland, Zambia, Zimbabwe</option>
+                        <option>UTC+03:00	Belarus, Djibouti, Eritrea, Ethiopia, Iraq, Kenya, Madagascar, Kaliningrad Oblast, Saudi Arabia, South Sudan, Sudan, Somalia, Somaliland, Tanzania, Uganda, Yemen	</option>
+                        <option>UTC+04:00	Armenia, Azerbaijan, Georgia, Mauritius, Oman, Russia (European), Seychelles, United Arab Emirates	</option>
+                        <option>UTC+04:30	Afghanistan	</option>
+                        <option>UTC+05:00	Kazakhstan (west), Maldives, Pakistan, Uzbekistan	</option>
+                        <option>UTC+05:30	India, Sri Lanka	</option>
+                        <option>UTC+05:45	Nepal	</option>
+                        <option>UTC+06:00	Kazakhstan (most), Bangladesh, Bhutan, Russia (Ural: Sverdlovsk Oblast, Chelyabinsk Oblast)</option>	
+                        <option>UTC+06:30	Cocos Islands, Myanmar	</option>
+                        <option>UTC+07:00	Western Indonesia, Russia (Novosibirsk Oblast), Thailand, Vietnam, Cambodia	</option>
+                        <option>UTC+08:00	Hong Kong, Central Indonesia, China, Russia (Krasnoyarsk Krai), Malaysia, Philippines, Singapore, Taiwan, most of Mongolia (Western Australia, Eucla, Macau	</option>
+                        <option>UTC+08:45	Australia Eucla unofficial</option>
+                        <option>UTC+09:00	Eastern Indonesia, East Timor, Irkutsk Oblast, Japan, North Korea, South Korea</option>
+                        <option>UTC+09:30	Australia Northern Territory</option>
+                        <option>UTC+10:00	Zabaykalsky Krai, Papua New Guinea, Queensland</option>
+                        <option>UTC+11:00	New Caledonia, Primorsky Krai, Solomon Islands	</option>
+                        <option>UTC+11:30	Norfolk Island	</option>
+                        <option>UTC+12:00	Kiribati (Gilbert Islands), Fiji, Russia (Kamchatka Krai)</option>
+                        <option>UTC+13:00	Kiribati (Phoenix Islands), Tonga, Tokelau</option>
+                        <option>UTC+14:00	Kiribati (Line Islands)   </option>
+                    </select>
+                    <div class="btn-settings">
+                        <button id="btn-save" class="save-btn">Save</button>
+                        <button id="btn-cancel" class="cancel-btn">Cancel</button>
+                    </div>
                 </div>
             </section>
         </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <script src="app.js"></script>
 </body>
 </html>
