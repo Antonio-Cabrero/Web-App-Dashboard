@@ -24,16 +24,8 @@ let trafficHourly = new Chart(trafficCanvas, {
         },
        "options": {
         aspectRatio: 2.5,
-        animation: {
-            duration: 0
-        },
             scales: {
                 yAxes: [{
-                    ticks: {
-                    beginAtZero:true
-                }
-                }],
-                xAxes: [{
                     ticks: {
                     beginAtZero:true
                 }
@@ -45,44 +37,44 @@ let trafficHourly = new Chart(trafficCanvas, {
         }
 });
 
-let trafficDaily = new Chart(trafficCanvas, {
-    "type": 'line',
-    "data": {
-     labels: ['02/11/19','03/11/19','04/11/19','05/11/19','06/11/19','07/11/19','08/11/19','09/11/19','10/11/19','11/11/19'],
-     datasets: [{
-          data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500,
-     2500],
-     backgroundColor: 'rgba(116, 119, 191, .3)',
-     borderColor: '#7477BF',
-     pointBackgroundColor: '#fff',
-     borderWidth: 1,
-     lineTension: 0,
-     responsive: true,
+// let trafficDaily = new Chart(trafficCanvas, {
+//     "type": 'line',
+//     "data": {
+//      labels: ['02/11/19','03/11/19','04/11/19','05/11/19','06/11/19','07/11/19','08/11/19','09/11/19','10/11/19','11/11/19'],
+//      datasets: [{
+//           data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500,
+//      2500],
+//      backgroundColor: 'rgba(116, 119, 191, .3)',
+//      borderColor: '#7477BF',
+//      pointBackgroundColor: '#fff',
+//      borderWidth: 1,
+//      lineTension: 0,
+//      responsive: true,
     
-     }]
-     },
-    "options": {
-     aspectRatio: 2.5,
-     animation: {
-         duration: 0
-     },
-         scales: {
-             yAxes: [{
-                 ticks: {
-                 beginAtZero:true
-             }
-             }],
-             xAxes: [{
-                 ticks: {
-                 beginAtZero:true
-             }
-             }]
-         },
-         legend : {
-             display: false
-         }
-     }
-});
+//      }]
+//      },
+//     "options": {
+//      aspectRatio: 2.5,
+//      animation: {
+//          duration: 0
+//      },
+//          scales: {
+//              yAxes: [{
+//                  ticks: {
+//                  beginAtZero:true
+//              }
+//              }],
+//              xAxes: [{
+//                  ticks: {
+//                  beginAtZero:true
+//              }
+//              }]
+//          },
+//          legend : {
+//              display: false
+//          }
+//      }
+// });
     // BAR CHART
 const dailyCanvas = document.getElementById("daily-chart");
 
@@ -157,13 +149,13 @@ const send = document.getElementById("btn-message");
 send.addEventListener('click', () => {
 
     if (user.value === "" && message.value === "") {
-        alert("Please fill out user and message fields before sending");
+        alert("Please fill out user and message fields before sending")
     }   else if (user.value === '') {
-        alert("Please fill out user field before sending"); 
+        alert("Please fill out user field before sending") 
     }    else if (message.value === '') {
-        alert("Please fill out message field before sending");
+        alert("Please fill out message field before sending")
     }   else {
-        alert(`Message successfully sent to ${user.value}`);
+        alert(`Message successfully sent to ${user.value}`)
     }
     
 })
