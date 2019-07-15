@@ -370,7 +370,22 @@ settings.addEventListener('click', (e)=> {
         localStorage.setItem("email", email.checked);
         localStorage.setItem("profileInfo", profileInfo.checked);
         localStorage.setItem("timezone", timezone.value);
-        alert("All Changes have been Saved!");
+        
+        e.preventDefault();
+        const element = e.target;
+        let messageBox =
+        alertError.style.display = "flex";
+        alertError.innerHTML = `
+        <div class="error-message">
+            <p>All changes have been saved!</p>
+            <button>Cool!</button>
+         </div>
+        `
+        const closeBtn = document.querySelector('.error-message button');
+        closeBtn.addEventListener('click', (e) => {
+            alertError.innerHTML = '';
+            alertError.style.display = "none"; 
+        });
     }
     if (element === cancel) {
         email.checked = false;
