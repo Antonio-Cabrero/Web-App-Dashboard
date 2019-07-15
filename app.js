@@ -332,3 +332,40 @@ send.addEventListener('click', (e) => {
     }
     
 })
+
+        // SAVING Settings 
+
+const settings = document.querySelector('.settings_container');
+const save = document.querySelector('#btn-save');
+
+const email = document.querySelector('.email-switch input');
+const profileInfo = document.querySelector('.profile-switch input');
+const timezone = document.querySelector('#timezone');
+
+
+window.addEventListener('load', ()=> {
+    let emailSett = localStorage.getItem('email');
+    let profileSett = localStorage.getItem('profileInfo');
+    let timeSett = localStorage.getItem('timezone');
+    
+    if (emailSett === "true") {
+        email.checked = 'true';
+    }
+    if (profileSett === "true") {
+        profileInfo.checked = 'true';
+    }
+    timezone.firstElementChild.innerHTML = timeSett;
+})
+
+settings.addEventListener('click', (e)=> {
+    const element = e.target;
+    
+    if (element === save) {
+        localStorage.setItem("email", email.checked);
+        localStorage.setItem("profileInfo", profileInfo.checked);
+        localStorage.setItem("timezone", timezone.value);
+    }
+})
+
+
+

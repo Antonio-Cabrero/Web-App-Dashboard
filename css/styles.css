@@ -181,6 +181,7 @@ nav {
     grid-area: main;
 }
 
+
       /* **************************** 
         ALERTS */
 
@@ -245,7 +246,7 @@ nav {
     .section_title {
         flex: 1;
     }
-    .dashboard div {
+    .main__search {
         flex: 3;
         background-color: #fbfbfb;
         border: 1px solid #bfbfc5;
@@ -425,6 +426,7 @@ select {
 }
 .message-container input {
     height: 30px;
+    width: 100%;
     border-radius: 6px;
     border: 1px solid #bfbfc5; 
 }
@@ -496,7 +498,6 @@ select {
 
     .main {
         grid-template-columns: 50% 50%;
-        grid-row-gap: 15px;
     }
 
     .dashboard,
@@ -520,11 +521,11 @@ select {
     
     .widget-container-full {
         margin: 25px auto;
-        width: 90vw;
+        width: 80vw;
     }
     
     .widget-container-half {
-        width: 45vw;
+        width: 40vw;
         margin: 25px auto;
     }
   

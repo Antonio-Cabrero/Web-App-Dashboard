@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/toggle-switch.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/awesomplete.css">
 </head>
 <body class="page-wrap">
    
@@ -57,7 +58,7 @@
             <div class="dashboard">
                 <h3 class="section_title">Dashboard</h3>
                 <div class="main__search">
-                    <input class="search__bar" type="text" placeholder="Search"><i class="fa fa-search"></i>
+                    <input class="search__bar awesomplete" type="text" placeholder="Search" data-list="Victoria Chambers, Dan Oliver, Dawn Wood, Dale Nyrd">
                 </div>
             </div>
             <div class="alertTop" id="alertTop" onload="">
@@ -111,7 +112,7 @@
                     <!-- DOUGHNUT CHART -->
             <section class="mobile-users">
                 <h3  class="section_title">Mobile Users</h3>
-                <div class="traffic__widget--doughnut">
+                <div class="widget-container-half">
                     <canvas id="mobile-chart"></canvas>
                 </div>
             </section>
@@ -242,7 +243,7 @@
                 <h3  class="section_title">Message User</h3>
 
                 <form class="message-container">
-                    <input id="userField" class="form-field" type="text" placeholder="Search for User" >
+                    <input id="userField" class="form-field awesomplete" type="text" placeholder="Search for User" data-list="Victoria Chambers, Dan Oliver, Dawn Wood, Dale Nyrd">
                     <textarea name="comment" id="messageField" class="form-message" placeholder="Message to User"></textarea>
                     <button id="btn-message" class="message-btn">Send</button>
                 </form>
@@ -253,7 +254,7 @@
             <section class="settings">
                 <h3  class="section_title">Settings</h3>
                 <div class="settings_container">
-                    <label class="switch-light switch-material" onclick="">
+                    <label class="switch-light switch-material email-switch" onclick="">
                         <input type="checkbox">
                             <strong>
                             Send email Notifications
@@ -264,7 +265,7 @@
                             <a></a>
                             </span>
                         </label>
-                    <label class="switch-light switch-material" onclick="">
+                    <label class="switch-light switch-material profile-switch" onclick="">
                         <input type="checkbox">
                             <strong>
                             Set Profile to public
@@ -323,6 +324,7 @@
         </main>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script src="app.js"></script>
+        <script src="awesomplete.js"></script>
 </body>
 </html>
 
