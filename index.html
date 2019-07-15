@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="page-wrap">
-
+   
                 <!-- HEADER -->
         <header>
             <div class="logo">
@@ -30,7 +30,7 @@
                 </li>
                 <li class="line_space"></li>
                 <li><img class="profile__picture" src="images/member-1.jpg" alt="member-1"></li> 
-                <li><span class="profile__name"> Profile Name</span></li>
+                <li><span class="profile__name"> Victoria Chambers</span></li>
             </ul>
         </header>
 
@@ -60,21 +60,21 @@
                     <input class="search__bar" type="text" placeholder="Search"><i class="fa fa-search"></i>
                 </div>
             </div>
-            <div class="alert" id="alert">
+            <div class="alertTop" id="alertTop" onload="">
                 <script>
                             // ALERT Element
-                    const alert= document.getElementById("alert");
-                        alert.innerHTML = `
+                    const alertTop = document.getElementById("alertTop");
+                        alertTop.innerHTML = `
                             <div class="alert-banner">
-                                <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complere</p>
+                                <span><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complere</span>
                                 <p class="alert-banner-close">x</p>
                             </div>
                         `
                             // ALERT EVENT Listener
-                    alert.addEventListener('click', e => {
+                    alertTop.addEventListener('click', e => {
                         const element = e.target;
                         if (element.classList.contains("alert-banner-close")) {
-                            alert.style.display = "none"
+                            alertTop.style.display = "none"
                         }
                     });
                 </script>
@@ -203,35 +203,42 @@
                             <img src="images/member-1.jpg" alt="">
                             <div class="activity__text">
                                 <p>Victoria Chambers commented on YourApp&trade; tips</p>
-                                <a href="#">2 hours ago</a>
-                            </div>
+                                <p>2 hours ago</p>
+                            </div>                            
+                            <a class="arrow-link" href="#">></a>
                         </div>
                         <div class="activity__container">
                             <img src="images/member-2.jpg" alt="">
                             <div class="activity__text">
                                 <p>Dale Nyrd likes the post Facebook Changes</p>
-                                <a href="#">4 hours ago</a>
-                            </div>
+                                <p>4 hours ago</p>
+                            </div>                            
+                            <a class="arrow-link" href="#">></a>
                         </div>
                         <div class="activity__container">
                             <img src="images/member-3.jpg" alt="">
                             <div class="activity__text">
                                 <p>Dawn Wood commented on Facebooks Changes</p>
-                                <a href="#">6 hours ago</a>
+                                <p>6 hours ago</p>
                             </div>
+                            <a class="arrow-link" href="#">></a>
                         </div>
                         <div class="activity__container">
                             <img src="images/member-4.jpg" alt="">
                             <div class="activity__text">
                                 <p>Dan Oliver posted on YourApp&trade; tips</p>
-                                <a href="#">8 hours ago</a>
+                                <p">8 hours ago</p">
                             </div>
+                            <a class="arrow-link" href="#">></a>
                         </div>
                     
                 </section>
 
                 <!-- MESSAGES WIDGET -->
             <section class="message">   <!-- ROW 6 -->
+                <div id="alert-message">
+                
+                </div>
                 <h3  class="section_title">Message User</h3>
 
                 <form class="message-container">
@@ -242,6 +249,7 @@
             </section>
 
                 <!-- SETTINGS -->
+            
             <section class="settings">
                 <h3  class="section_title">Settings</h3>
                 <div class="settings_container">
@@ -317,3 +325,4 @@
         <script src="app.js"></script>
 </body>
 </html>
+

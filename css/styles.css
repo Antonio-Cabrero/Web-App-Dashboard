@@ -18,7 +18,7 @@ header,
 nav,
 .profile__nav, 
 .dashboard,
-.alert,
+.alertTop,
 .alert-banner,
 .traffic__container,
 .traffic__nav,
@@ -32,7 +32,7 @@ nav,
 .notif,
 .nav__link,
 .dashboard,
-#alert {
+#alertTop {
     text-align: center;
 }
 
@@ -52,7 +52,8 @@ header,
 
 .message-btn,
 .save-btn,
-.cancel-btn {
+.cancel-btn,
+.error-message button {
     background-color: #7477BF;
     color: #fff;
     padding: 8px;
@@ -120,7 +121,12 @@ header {
 }
 .bell{
     height: 1.2em;
+    transition: all .5s ease;
 }
+    .bell:hover {
+        transform: rotate(45deg);
+        height: 1.4em;
+    }
 .container__notif {
     position: relative;
 }
@@ -133,14 +139,19 @@ header {
     border-radius: 50%;
     background-color: #84d386;
 }
+    .close {     
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: large;
+        cursor: pointer;
+    }
 
     /* ****************************
             NAVIGATION
     **************************** */
 
 nav {
-    position: sticky;
-    top: 0;
     background-color: #4e4e71;
     grid-area: nav;
 }
@@ -170,6 +181,8 @@ nav {
     grid-area: main;
 }
 
+      /* **************************** 
+        ALERTS */
 
 .alert-banner {
     justify-content: space-between;
@@ -180,9 +193,49 @@ nav {
     margin: 10px auto;
 }
     .alert-banner p {
-        margin-left: 5px;
-        padding: 0 8px; 
+        margin-left: 15px;
+        padding: 0 5px; 
+        font-weight: bold;
+        border-radius: 50%;
+        background-color: #fff;
+        color: #7477BF;
+        cursor: pointer;
     }
+
+#alert-message {
+    display: none; 
+    position: fixed; 
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4); 
+}
+    .error-message {
+        background-color: #fff;
+        padding: 50px;
+        text-align: center;
+        border-radius: 6px;
+    } .error-message button {
+        margin-top: 10px;
+        text-indent: inherit;
+    }
+        
+.notifBox {
+    background-color: #fff;
+    color: #6a6a6e;
+    z-index: 5;
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 0.5px solid#bfbfc5;
+    width: 300px;
+}
     /* ****************************
         DASHBOARD */
 
@@ -228,6 +281,7 @@ nav {
 .traffic__nav-link {
         margin-left: 10px;
         padding: 0.4em 1em 0.4em 1em;
+        cursor: pointer;
     }
     .traffic__nav-link:hover {
         background-color: rgb(11, 221, 123);
@@ -319,7 +373,7 @@ select {
 }
 .members__text {
     padding-top: 5px;
-    font-size: 15px;
+    font-size: 0.8em;
 }
 .date {
     margin-left: auto; 
@@ -345,10 +399,18 @@ select {
 .activity__text {
     margin-left: 10px; 
     margin-bottom: 20px;
-    font-size: 13px;
+    font-size: 0.8em;
 }
-    .activity__text a {
-        font-size: 11px;
+.activity__text-notif {
+    margin-left: 10px; 
+    font-size: 13px;
+    text-align: left;
+
+}
+    .arrow-link{
+        margin-left: auto;
+        transform: scale(1.5);
+        color: #6a6a6e;
     }
 /* ****************************
         Messages */
@@ -371,7 +433,10 @@ select {
     height: 100px;
     border-radius: 6px; 
     border: 1px solid #bfbfc5;
-}
+}   
+    .form-message::placeholder {
+        padding-top: 5px;
+    }
 
 .message-btn {
     margin-bottom: auto; 
@@ -431,10 +496,11 @@ select {
 
     .main {
         grid-template-columns: 50% 50%;
+        grid-row-gap: 15px;
     }
 
     .dashboard,
-    #alert,
+    #alertTop,
     .traffic,
     .social {
         grid-column: 1 / span 2;
@@ -497,4 +563,19 @@ nav {
 }
 
 
+}
+
+@media (min-width: 1024px) {
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.widget-container-full {
+    width: inherit;
+}
+.widget-container-half {
+    width: inherit;
+}
 }
