@@ -337,6 +337,7 @@ send.addEventListener('click', (e) => {
 
 const settings = document.querySelector('.settings_container');
 const save = document.querySelector('#btn-save');
+const cancel = document.querySelector('#btn-cancel');
 
 const email = document.querySelector('.email-switch input');
 const profileInfo = document.querySelector('.profile-switch input');
@@ -354,7 +355,12 @@ window.addEventListener('load', ()=> {
     if (profileSett === "true") {
         profileInfo.checked = 'true';
     }
-    timezone.firstElementChild.innerHTML = timeSett;
+    if (timeSett === null){
+        timezone.firstElementChild.innerHTML = "Select Timezone";
+    } else {
+        timezone.firstElementChild.innerHTML = timeSett;
+    }
+
 })
 
 settings.addEventListener('click', (e)=> {
@@ -364,6 +370,11 @@ settings.addEventListener('click', (e)=> {
         localStorage.setItem("email", email.checked);
         localStorage.setItem("profileInfo", profileInfo.checked);
         localStorage.setItem("timezone", timezone.value);
+        alert("All Changes have been Saved!");
+    }
+    if (element === cancel) {
+        email.checked = false;
+        profileInfo.checked = false;
     }
 })
 
